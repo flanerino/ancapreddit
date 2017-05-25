@@ -2,25 +2,16 @@
 
 @section('content')
 
+@foreach($posts as $post)
+
 <div class="row">
   <div class="col-md-12">
-    <h2> Title </h2>
-    <p> Posted on 1989 </p>
+    <h2><a href="{{ route('post_path', ['post' => $post->id])}}"> {{$post->title}} </a> </h2>
+    <p> Posted {{$post -> created_at -> diffforHumans() }} </p>
   </div>
 </div>
 <hr>
-<div class="row">
-  <div class="col-md-12">
-    <h2> Title </h2>
-    <p> Posted on 1989 </p>
-  </div>
-</div>
-<hr>
-<div class="row">
-  <div class="col-md-12">
-    <h2> Title </h2>
-    <p> Posted on 1989 </p>
-  </div>
-</div>
+
+@endforeach
 
 @endsection

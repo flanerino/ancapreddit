@@ -1,11 +1,15 @@
 @extends('layouts.ancap')
 
 @section('content')
+
+
   <div class="row">
     <div class="col-md-12">
-      <h2> Title </h2>
-      <p> Description </p>
-      <p> Posted on 1989 </p>
+      <h2> {{$post->title}} </h2>
+      <p> {{$post->description}} </p>
+      <p> {{$post->created_at->diffforHumans()}} </p>
     </div>
   </div>
+
+
 @endsection

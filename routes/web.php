@@ -15,5 +15,5 @@ Route::get('/', function () {
     return view('welcome', ['nombre' => 'Flan']);
 });
 
-Route::get('/posts', 'PostsController@index');
-Route::get('/posts/{id}', 'PostsController@show');
+Route::name('posts_path')->get('/posts', 'PostsController@index');
+Route::name('post_path')->get('/posts/{post}', 'PostsController@show');
