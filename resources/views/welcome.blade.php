@@ -79,7 +79,12 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                  @if (is_null($nombre))
+                  No tengo a quien saludar
+                  @else
+                    Hola {{$nombre}}
+                  @endif
+
                 </div>
 
                 <div class="links">
