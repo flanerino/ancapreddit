@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\post;
 
+
 class PostsController extends Controller
 {
     public function index(){
@@ -19,5 +20,14 @@ class PostsController extends Controller
     public function show(Post $post){
 
       return view ('posts/show')->with(['post' => $post]);
+    }
+
+    public function create(){
+      return view ('posts.create');
+    }
+
+    public function store(CreatePostRequest $request)
+    {
+        dd($request->all());
     }
 }
