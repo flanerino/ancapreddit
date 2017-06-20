@@ -11,5 +11,7 @@
     </div>
   </div>
 
-
+  <div class="form-group">
+    <a href="{{ route('posts_path') }}" class="btn btn-info" style="min-width: 75px;"> Back </a>
+  </div>
 @endsection

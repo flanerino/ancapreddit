@@ -18,6 +18,7 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->text('description');
             $table->string('url');
+            $table->integer('user_id');
             $table->timestamps(); //created_at && updated_at
         });
     }
