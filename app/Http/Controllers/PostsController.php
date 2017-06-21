@@ -15,7 +15,7 @@ class PostsController extends Controller
     public function index()
     {
 
-      $posts = Post::orderBy('id', 'desc')->paginate(10);
+      $posts = Post::with('user')->orderBy('id', 'desc')->paginate(10);
 
 
       return view ('posts.index')->with(['posts' => $posts]);
@@ -52,7 +52,7 @@ class PostsController extends Controller
       if($post->user_id != \Auth::user()->id){
         return redirect()->route('posts_path');
       }
-      
+
       return view ('posts.edit')->with(['post' => $post]);
     }
 

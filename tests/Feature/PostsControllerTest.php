@@ -31,6 +31,25 @@ class PostsControllerTest extends TestCase
   }
 
   /** @test */
+  public function it_sees_posts_author()
+  {
+    // Arrange
+    $posts = factory(\App\Post::class,10)->create();
+
+    //Act
+    $response = $this->get(route('posts_path'));
+
+    //Assert
+
+    $response->assertStatus(200);
+    foreach ($posts as $post)
+    {
+      $response->assertSee($post->title);
+      $response->assertSee($post->user->name);
+    }
+  }
+
+  /** @test */
   public function a_registered_user_can_see_all_posts()
   {
     // Arrange
@@ -50,4 +69,19 @@ class PostsControllerTest extends TestCase
       $response->assertSee($post->title);
     }
   }
+
+  /** @test */
+  public function a_guest_cannot_see_the_creation_form()
+  {
+    // Arrange
+
+
+    //Act
+
+
+    //Assert
+
+  
+  }
+
 }

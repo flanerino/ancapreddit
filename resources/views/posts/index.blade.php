@@ -16,7 +16,7 @@
 
     <h2><a href="{{ route('post_path', ['post' => $post->id] ) }}"> {{$post->title}} </a> </h2>
 
-    @if(Auth::check() && $post->user_id == Auth::user()->id)
+    @if($post->wasCreatedBy( Auth::user() ) )
     <small class="pull-right">
 
       <a href="{{ route('edit_post_path', ['post' => $post->id] ) }}" class="btn btn-info" style="min-width: 75px;"> Edit </a>
@@ -30,7 +30,7 @@
 
     </small>
     @endif
-    <p> Posted {{$post -> created_at -> diffforHumans() }} </p>
+    <p> Posted {{$post->created_at->diffforHumans() }} by <b> {{ $post->user->name }} </b> </p>
 
   </div>
 
